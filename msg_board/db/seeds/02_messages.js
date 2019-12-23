@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex("messages").insert([
-        { message: "What Are You?" },
-        { message: 'I"m Batman' }
+        { id: 1, message: "What Are You?" },
+        { id: 2, message: "I'm Batman" }
       ]);
     });
 };
