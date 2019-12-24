@@ -1,12 +1,18 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex("messages")
+  return knex("message")
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex("messages").insert([
-        { id: 1, message: "What Are You?" },
-        { id: 2, message: "I\'m Batman" }
+      return knex("message").insert([
+        {
+          message: "What Are You?",
+          user_id: 1
+        },
+        {
+          message: "I\m Batman",
+          user_id: 2
+        },
       ]);
     });
 };

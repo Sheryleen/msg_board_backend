@@ -1,12 +1,14 @@
-exports.up = function(knex, Promise) {
-  return knex.schema.createTable("messages", table => {
+exports.up = function (knex, Promise) {
+  return knex.schema.createTable("messages", function (table) {
     table.increments();
-    table.string("names").notNullable();
-    table.string("messages").notNullable();
+    table.string('message').notNullable();
+    table.integer('user_id').notNullable();
     table.timestamps(true, true);
   });
 };
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex.schema.dropTable("messages");
+
 };
+

@@ -1,9 +1,9 @@
-exports.up = function(knex) {
-  return knex.schema.createTable("names_messages", function(table) {
+exports.up = function (knex) {
+  return knex.schema.createTable("users_messages", function (table) {
     table.increments();
     table
-      .integer("name_id")
-      .references("names.id")
+      .integer("user_id")
+      .references("users.id")
       .onDelete("CASCADE"); //referencing id column of the users table
     table
       .integer("message_id")
@@ -12,6 +12,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
-  return knex.schema.dropTable("names_messages");
+exports.down = function (knex) {
+  return knex.schema.dropTable("users_messages");
 };
