@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("../db/knex");
-const productsController = require("../db/controllers/messages");
+const messagesController = require("../db/controllers/messages");
 
-//GET ALL PRODUCTS, ADD, EDIT AND REMOVE
+//GET ALL MESSAGES, ADD, EDIT AND REMOVE
 router.get("/messages", messagesController.getAllMessages);
 router.get("/messages/:id", messagesController.getOneMessage);
 router.post("/messages", messagesController.addOneMessage);
