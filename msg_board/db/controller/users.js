@@ -34,7 +34,7 @@ exports.updateOneUser = (req, res) => {
 exports.removeOneUser = (req, res) => {
   knex("users")
     .del()
-    .where("id, req.params.id")
+    .where("id", req.params.id)
     .returning("*")
     .then(newUser => res.json(newUser));
 };
