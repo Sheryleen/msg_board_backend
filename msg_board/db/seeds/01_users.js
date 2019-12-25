@@ -1,23 +1,19 @@
-
-exports.seed = function (knex) {
+exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex("users")
     .del()
-    .then(function () {
-
+    .then(function() {
       // Inserts seed entries
       return knex("users").insert([
-
         {
-          "name": "Criminal",
-          "message": "What Are You?",
+          name: "Criminal",
+          message: "What Are You?"
         },
 
         {
-          "name": "Batman",
-          "message": "I\m Batman"
+          name: "Batman",
+          message: "Im Batman"
         }
       ]);
     });
 };
-

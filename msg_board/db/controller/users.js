@@ -9,13 +9,13 @@ exports.getAllUsers = (req, res) => {
 
 exports.getOneUser = (req, res) => {
   knex
-    .select()//retrieval process
+    .select() //retrieval process
     .table("users")
     .where("id", req.params.id)
     .then(user => res.json(user));
 };
 exports.addOneUser = (req, res) => {
-  knex('users')
+  knex("users")
     .insert(req.body)
     .returning("*")
     .then(newUser => res.json(newUser));
@@ -24,12 +24,11 @@ exports.addOneUser = (req, res) => {
 exports.updateOneUser = (req, res) => {
   knex("users")
     .update({
-      ...req.body,
-      updated_at: newData()
+      ...req.body
     })
     .where("id", req.params.id)
     .returning("*")
-    .then(updatedUser => res.json(updateUser));
+    .then(updatedUser => res.json(updatedUser));
 };
 
 exports.removeOneUser = (req, res) => {

@@ -4,8 +4,7 @@ const port = process.env.PORT || 8000;
 const cors = require("cors");
 const logger = require("morgan");
 
-const names = require("./routes/names");
-const messages = require("./routes/messages");
+const names = require("./routes/users");
 
 const app = express();
 
@@ -14,7 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", messages);
 app.use("/", names);
 
 app.listen(port, function() {
